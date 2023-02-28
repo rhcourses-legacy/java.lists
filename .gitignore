@@ -1,0 +1,9 @@
+# editor/ide configs
+.idea
+.vscode
+
+# build artifacts
+target
+
+# mac specific files
+.DS_Store
