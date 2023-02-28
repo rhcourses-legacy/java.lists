@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>java-lists-examples</artifactId>
+    <packaging>jar</packaging>
+    <name>java-lists-examples</name>
 
     <properties>
 		    <commons.version>1.0</commons.version>
