@@ -1,0 +1,80 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src2listing}[2023/02/27 Source2Listing]
+
+\RequirePackage{etoolbox}
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{listingsutf8}
+\tcbuselibrary{skins}
+\tcbuselibrary{theorems}
+\tcbuselibrary{xparse}
+
+% for syntax highlighting in listings with \ttfamily
+\RequirePackage{bold-extra}
+
+% programming language options
+\newtoggle{srclisting@lang@go}
+\newtoggle{srclisting@lang@java}
+\newtoggle{srclisting@lang@none}
+\toggletrue{srclisting@lang@none}
+\newcommand{\iflanggo}[1]{\iftoggle{srclisting@lang@go}{#1}{}}
+\newcommand{\iflangjava}[1]{\iftoggle{srclisting@lang@java}{#1}{}}
+\newcommand{\iflangnone}[1]{\iftoggle{srclisting@lang@none}{#1}{}}
+\def\srclisting@langerror{\PackageError{src2listing}{Options 'go' and 'java' are mutually exclusive}}
+\DeclareOption{go}{
+    \iflangjava{\srclisting@langerror}
+    \toggletrue{srclisting@lang@go}
+    \togglefalse{srclisting@lang@none}
+}
+\DeclareOption{java}{
+    \iflanggo{\srclisting@langerror}
+    \toggletrue{srclisting@lang@java}
+    \togglefalse{srclisting@lang@none}
+}
+
+\ProcessOptions\relax
+
+% Select default language if no language option has been specified.
+\iftoggle{srclisting@lang@none}{\toggletrue{srclisting@lang@go}}{\togglefalse{srclisting@lang@none}}
+
+% Default values for programming languages.
+\iflanggo{
+    \def\srclisting@defaultlang{go}
+}
+\iflangjava{
+    \def\srclisting@defaultlang{java}
+}
+
+% Styling of listings.
+\lstdefinestyle{examlisting}{
+    basicstyle=\ttfamily\small,
+    language=\srclisting@defaultlang,
+    numberstyle=\tiny,
+    numbers=left,
+    tabsize=2,
+    breaklines=true,
+    xleftmargin=1em,
+}
+
+% The actual listing environment.
+\NewTCBInputListing{\inputsrcfile}{ O{examlisting} m !O{} }{
+    % #1: the listing's style
+    % #2: the file name to input
+    % #3: the line range to use
+    enhanced,
+    boxrule=0.5pt,
+    frame hidden,
+    colback=black!3,
+    listing only,
+    listing file = #2,
+    listing options = {
+        linerange={#3},
+        style=#1,
+    },
+}
+
+% macros for inline listings
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\codeoutput}[1]{\code{#1}}
+
+\endinput
