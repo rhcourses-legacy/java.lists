@@ -1,4 +1,39 @@
 \begin{frame}
-    \begin{block}{Übersicht}
+    \begin{block}{Attribute eines dynamischen Arrays}
+        \begin{itemize}
+            \item Array für die Daten
+            \item tatsächliche und maximale Länge
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Zentrale Operation: \alert{\code{reallocate}}}
+        \begin{itemize}
+            \item neues Array für die Daten mit neuer Länge erzeugen
+            \item alle Elemente an die neue Stelle kopieren
+            \item maximale Länge aktualisieren
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Anhängen von Elementen}
+        \begin{itemize}
+            \item Element an erste freie Stelle schreiben
+                  und Größe aktualisieren
+            \item ggf. vorher \code{reallocate} durchführen
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Anhängen von Elementen}
+        \begin{itemize}
+            \item falls Array voll: \code{reallocate} durchführen
+            \item neues Element an erste freie Stelle schreiben
+            \item Größe aktualisieren
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Wie viel Speicher sollte bei \code{reallocate} reserviert werden?}
+        \begin{itemize}
+            \item<3-> Antwort: Z.B. immer verdoppeln.
+            \item<3-> Ziel: Der Speicher muss exponentiell wachsen,
+            damit \code{reallocate} nicht zu oft notwendig ist.
+        \end{itemize}
     \end{block}
 \end{frame}
