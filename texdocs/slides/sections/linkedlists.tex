@@ -1,4 +1,62 @@
 \begin{frame}
-    \begin{block}{Übersicht}
+    \begin{block}{Attribute eines Listenelements}
+        \begin{itemize}
+            \item Datensatz
+            \item Zeiger/Referenzen auf die Nachbarelemente
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Zwei typische Varianten}
+        \begin{itemize}
+            \item einfach verkettete Liste
+            \item doppelt verkettete Liste
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Anhängen von Elementen}
+        \begin{itemize}
+            \item Ende der Liste suchen
+            \item neues Element anhängen
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Anhängen von Elementen}
+        \begin{itemize}
+            \item Ende der Liste suchen
+            \item neues Element anhängen
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Markierung des Listen-Endes: \alert{Sentinel-Prinzip}}
+        \begin{itemize}
+            \item Verwendung eines \emph{Dummy-Elements}
+            \item wird nicht für Daten verwendet
+            \item markiert das Ende der Liste
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Vorteil des Dummy-Elements}
+        \begin{itemize}
+            \item keine Sonderbehandlung der leeren Liste notwendig
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Implementierung der ganzen Liste}
+        \begin{itemize}
+            \item Ein Listenelement ist gleichzeitig auch eine Liste.
+            \item \alert{Listen haben eine rekursive Struktur!}
+            \item Container-Klasse für Liste ist dennoch oft nützlich
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Attribute einer verketteten Liste}
+        \begin{itemize}
+            \item Zeiger/Referenz auf Anfang der Liste oder Dummy
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Vorteil der Container-Klasse}
+        \begin{itemize}
+            \item kann Dummy vor Benutzer verstecken
+            \item manche Operationen einfacher umsetzbar
+        \end{itemize}
     \end{block}
 \end{frame}
