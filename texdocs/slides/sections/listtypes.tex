@@ -1,4 +1,111 @@
 \begin{frame}
-    \begin{block}{Übersicht}
+    \begin{block}{Gemeinsame Eigenschaften von Listen}
+        \begin{itemize}
+            \item Elemente gleichen Typs
+            \item Zugriff auf einzelne Elemente möglich
+            \item Durchlaufen möglich
+            \item Operationen: Hinzufügen und Löschen von Elementen
+        \end{itemize}
+    \end{block}
+
+    \begin{block}<2->{Abstrakter Datentyp \gqq{Liste}}
+        \begin{itemize}
+            \item Wird durch abstrakte Eigenschaften wie oben definiert.
+            \item Wird \emph{nicht} durch konkrete Implementierungsdetails definiert.
+            \begin{itemize}
+                \item \emph{nicht} durch die konkrete Anordnung im Speicher
+                \item \emph{nicht} durch Performance-Eigenschaften
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Abstrakter Datentyp \gqq{Liste}}
+        \begin{itemize}
+            \item Elemente gleichen Typs
+            \item Zugriff/Durchlaufen möglich
+            \item Hinzufügen und Löschen von Elementen
+        \end{itemize}
+    \end{block}
+
+    \begin{block}<2->{Konkrete Listen-Datentypen}
+        \begin{itemize}
+            \item Arrays
+            \item dynamische Arrays
+            \item verkettete Listen
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Arrays}
+        \begin{itemize}
+            \item zusammenhängender Bereich im Speicher
+            \item Zugriff und Durchlaufen mittels \emph{Pointerarithmetik}
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Vorteile}
+        \begin{itemize}
+            \item Zugriff/Durchlauf sehr schnell
+            \item \emph{wahlfreier} Zugriff
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Nachteile}
+        \begin{itemize}
+            \item keine Größenänderung möglich
+            \item Einfügen ggf. aufwendig oder unmöglich
+            \item zusammenhängender Platz nötig
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Dynamische Arrays}
+        \begin{itemize}
+            \item verwendet intern Arrays
+            \item \emph{wahlfreier} Zugriff
+            \item fügt die Möglichkeit zur Größenänderung hinzu
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Vorteile}
+        \begin{itemize}
+            \item Zugriff/Durchlauf sehr schnell
+            \item Größenänderung möglich
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Nachteile}
+        \begin{itemize}
+            \item Einfügen ggf. aufwendig
+            \item zusammenhängender Platz nötig
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Verkettete Listen}
+        \begin{itemize}
+            \item Elemente bestehen aus zwei Teilen:
+            \begin{itemize}
+                \item Daten
+                \item Pointer/Referenz auf benachbarte Elemente
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+    \begin{block}<2->{Vorteile}
+        \begin{itemize}
+            \item Größenänderung möglich
+            \item Einfügen bei bekannter Position schnell
+            \item kein zusammenhängender Speicherbereich
+            \begin{itemize}
+                \item dadurch bessere Speicher-Ausnutzung
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Nachteile}
+        \begin{itemize}
+            \item Durchlauf und Zugriff aufwendig
+            \item kein \emph{wahlfreier} Zugriff
+        \end{itemize}
     \end{block}
 \end{frame}
